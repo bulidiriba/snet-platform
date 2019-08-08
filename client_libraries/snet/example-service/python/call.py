@@ -1,7 +1,7 @@
 
 from snet_sdk import Snet
 
-private_key = open('../../private_key.txt').readline()
+private_key = open('../../../../private_key.txt').readline()
 
 identity = Snet(private_key=private_key)
 
