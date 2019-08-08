@@ -1,5 +1,3 @@
-import snet
-#import snet.example_service as example_service
 
 from snet_sdk import Snet
 
@@ -7,13 +5,13 @@ private_key = open('../../private_key.txt').readline()
 
 identity = Snet(private_key=private_key)
 
+channel_id = [channel_id]# the already initialized channel id of this service, if not initialize it in snet-cli 
+
 try:
-	#client = identity.client("snet", "face-detect", channel_id=6249, endpoi)
-	client = identity.client("snet", "face-detect")
-	print("Yeah No Error")
+	client = identity.client("snet", "face-detect", channel_id=channel_id)
+	print("No Error")
 	#print("AGI tokens available:", identity.balance())
-	client.open_channel()
-	print("channel created")
+	#client.open_channel()
 except Exception as e:
 	print("Error 1")
 	print("\nEEEROOOR", e)

@@ -5,13 +5,12 @@ private_key = open('../../private_key.txt').readline()
 
 identity = Snet(private_key=private_key)
 
+channel_id = [channel_id]# the already initialized channel id of this service, if not initialize it in snet-cli 
 
 try:
-	#client = identity.client("snet", "face-detect", channel_id=6249, endpoi)
-	client = identity.client("snet", "example_service")
+	client = identity.client("snet", "example_service", channel_id)
 	print("Yeah No Error")
-	#print("AGI tokens available:", identity.balance())
-	client.open_channel()
+	#client.open_channel()
 	print("channel created")
 except Exception as e:
 	print("Error 1")

@@ -6,9 +6,11 @@ private_key = open('../../private_key.txt').readline()
 
 identity = Snet(private_key=private_key)
 
+channel_id = [channel_id]# the already initialized channel id of this service, if not initialize it in snet-cli 
+
+
 try:
-	client = identity.client("snet", "network-analytics-robustness", channel_id=6258)
-	# in kovan channel_id = 2410, in ropsten channel_id = 6258
+	client = identity.client("snet", "network-analytics-robustness", channel_id=channel_id)
 	# if you change the network from kovan to ropsten or vice versa change also this channel_id to respective of that
 	# by checking just in the terminal with snet channel print-initialized, because the channel_id of the same service 
 	# to change the network go into snet_sdk/__init__.py then change in the snet_sdk_defaults
