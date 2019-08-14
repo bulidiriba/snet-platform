@@ -1,0 +1,38 @@
+syntax="proto3";
+
+package tutorial;
+
+// our goal is to create an AddressBook, and in this like the following
+//name     id     email      phoneNumber    
+//						       num type	
+
+// so Each row describes the attributes of one Person
+// and the the collection of those person is called AddressBook
+
+message Person{
+	string name = 1;
+	int32 id = 2;
+	string email = 3;
+
+	// type of the phone can be MOBILE phone or HOME phone or WORK phone
+	enum PhoneType {
+		MOBILE = 0;
+		HOME = 1;
+		WORK = 2;
+	}
+
+	// Schema or Object, PhoneNumber contains 2 fields that number itself and type of it
+	message PhoneNumber { 
+		string number = 1;
+		PhoneType type = 2;
+	}
+
+	repeated PhoneNumber phones = 4; // this means one person can contains many phone number
+}
+
+message AddressBook {
+	repeated Person people = 1; // this means AddressBook contains many person
+}
+
+
+
